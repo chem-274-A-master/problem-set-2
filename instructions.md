@@ -12,8 +12,8 @@
   - [Molecular Dynamics Integrators](#molecular-dynamics-integrators)
     - [**Velocity Verlet Integrator**](#velocity-verlet-integrator)
     - [**Euler Integrator**](#euler-integrator)
-    - [**Beeman Integrator**](#beeman-integrator)
     - [**Verlet Integrator**](#verlet-integrator)
+    - [**Beeman Integrator**](#beeman-integrator)
   - [Reflection and Documentation](#reflection-and-documentation)
 
 ## Section 1 - C++ Classes
@@ -100,7 +100,7 @@ $$
 $$
 
 
-In practice, this is implemented in half steps. A nice explanation of the steps to implement this algorithm can be found [on Wikipedia](https://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet).
+You can either use the formulas above, or in half steps (as described below). A nice explanation of the steps to implement the half step algorithm can be found [on Wikipedia](https://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet). It is a bit nicer than using the equations above beause it doesn't rely on the past state of the sytem.
 
 
 1. Calculate the velocity at a half step:
@@ -119,34 +119,22 @@ $$
 $$
 
 #### **Euler Integrator**
-The Euler integrator is the simplest integrator.
+The Euler integrator is the simplest integrator. 
+However, it is not time reversible and generally does a poor job of maintaining constant energy, 
+so it is not usually used.
 
 $$
-\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t) \Delta T + \frac{1}{2} \Delta t ^{2}
-$$
-
-$$
-\vec{v}( t + \Delta t ) = \vec{v}(t) + \frac{1}{2} \vec{a} \Delta t
-$$
-
-#### **Beeman Integrator**
-
- You can read about [Beeman's algorithm on this webpage](http://www.sklogwiki.org/SklogWiki/index.php/Beeman%27s_algorithm).
-
-The formulas are
-
-$$
-\vec{x}(t + \Delta t) = \vec{x} (t) + \vec{v}(t) \Delta t + \left( \frac{2}{3} \vec{a}(t) \Delta t - \frac{1}{6} \vec{a}(t - \Delta t) \right) \Delta t ^ {2}
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t) \Delta t
 $$
 
 $$
-\vec{v}(t + \Delta t) = \vec{v}(t) + \left( \frac{1}{3} \vec{a}(t + \Delta t) + \frac{5}{6}\vec{a}(t) - \frac{1}{6}\vec{a}(t - \Delta t) \right) \Delta t
+\vec{v}( t + \Delta t ) = \vec{v}(t) + \vec{a} \Delta t
 $$
 
 #### **Verlet Integrator**
-This is offered as a challenge.
-
-The Velocity Verlet algorithm is an improvement on the Verlet algorithm. The Verlet algorithm is perhaps the most difficulat to implement of the four options because calculation of the first step is different than every other step and the next position relies on the past state of the simulation. It requires you to use the previous position to calculate the next position and velocity (every other integrator is only dependent on the current state of the diatomic). For this integrator, you might have to change some things about `update_tracker` for the correct values to be stored. 
+The Velocity Verlet algorithm discussed previously is an improvement on the Verlet algorithm. 
+The Verlet algorithm is one of the earliest molecular dynamics integrators used. It is more difficulat to implement than the Euler or Verlet integrator because it is not "self-starting". 
+Calculation of the first step is different than every other step and the next position relies on the past state of the simulation.
 
 **First Step**  
 $$
@@ -163,6 +151,24 @@ In the Verlet method, the velocity is not actually used to calculate the positio
 
 $$
 \vec{v}(t) = \frac {\vec{x}(t + \Delta t) - \vec{x}(t - \Delta t)} {2 \Delta t}
+$$
+
+#### **Beeman Integrator**
+The Beeman algorithm is very similar to the Verlet algorithm, but has better energy conservation. Like the Verlet algorithm, the Beeman algorithm is not self-starting. It is also to harder to implement than either the Velocity Verlet or Euler methods.
+
+**First Step**  
+$$
+\vec{x}(t + \Delta t) = \vec{x} + \vec{v}(t) \Delta t + \frac{1}{2} \vec{a} \Delta t ^{2} 
+$$
+
+**All other steps**
+
+$$
+\vec{x}(t + \Delta t) = \vec{x} (t) + \vec{v}(t) \Delta t + \frac{1}{6} \left( 4 \vec{a}(t) - \vec{a}(t - \Delta t) \right) \Delta t ^ {2}
+$$
+
+$$
+\vec{v}(t + \Delta t) = \vec{v}(t) + \frac{1}{6} \left( 2 \vec{a}(t + \Delta t) + 5 \vec{a}(t) - \vec{a}(t - \Delta t) \right) \Delta t
 $$
 
 ### Reflection and Documentation
