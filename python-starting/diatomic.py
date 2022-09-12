@@ -16,7 +16,7 @@ class DiatomicMassError(ValueError):
 class Diatomic:
     def __init__(
         self,
-        reduced_mass,
+        reduced_mass: Union[int, float],
         force_constant: Union[int, float],
         initial_separation: Union[int, float],
         initial_velocity: Union[int, float],
@@ -46,10 +46,10 @@ class Diatomic:
         # Provided - Problem Set 1
         return 0.5 * self.reduced_mass * self.velocity**2
 
-    def analytical_position(self, t: Union[float, int]):
+    def analytical_position(self, t: Union[ float, np.ndarray ] ):
         # Provided - Problem Set 1
         return self.amplitude * np.cos(self.omega * t + self.phi)
 
-    def analytical_velocity(self, t: Union[float, int]):
+    def analytical_velocity(self, t: Union[ float, np.ndarray ] ):
         # Provided - Problem Set 1
         return -self.amplitude * self.omega * np.sin(self.omega * t + self.phi)

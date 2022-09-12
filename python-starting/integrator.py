@@ -24,10 +24,12 @@ class IntegratorBaseClass:
 
         # trackers
         self.num_steps: int = 0
-        self.trajectory: list = []
-        self.kinetic_energy: list = []
-        self.potential_energy: list = []
-        self.times: list = []
+        self.trajectory: list[float] = []
+        self.velocities: list[float] = []
+        self.accelerations: list[float] = []
+        self.kinetic_energy: list[float] = []
+        self.potential_energy: list[float] = []
+        self.times: list[float] = []
         self.update_trackers()
 
     def run(self, run_steps: int):
@@ -47,6 +49,8 @@ class IntegratorBaseClass:
     def update_trackers(self):
         # Update simulation trackers.
         self.trajectory.append(self.system.separation)
+        self.velocities.append(self.system.velocity)
+        self.accelerations.append(self.system.acceleration)
         self.kinetic_energy.append(self.system.kinetic_energy())
         self.potential_energy.append(self.system.potential_energy())
         self.times.append(self.num_steps * self.time_step)
