@@ -98,7 +98,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
         Code compiles and runs
     </td>
     <td>
-        1 points
+        1 point
     </td>
 
 
