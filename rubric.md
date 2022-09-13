@@ -75,13 +75,13 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
         <td>
             Points
                 <ul>
-                    <li> 1 points
-                    <li> 1 points
-                    <li> 1 points
-                    <li> 1 points
-                    <li> 1 points
-                    <li> 1 points
-                    <li> 1 points
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
                 </ul>
         </td>
     </tr>
