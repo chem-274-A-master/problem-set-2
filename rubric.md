@@ -95,7 +95,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
     </tr>
     <tr>
     <td>
-        Code compiles and runs
+        Code compiles via Makefile and runs
     </td>
     <td>
         1 point
