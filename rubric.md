@@ -1,6 +1,6 @@
 # Problem Set 2 Python Rubric
 
-This Problem Set will be graded out of 10 points and is worth 4% of your total grade.
+The Python portion of this Problem Set will be graded out of 10 points and is worth 4% of your total grade.
 
 <table width="100%">
     <tr>
@@ -41,64 +41,6 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
     </td>
     <td>
         2 points
-    </td>
-
-
-</table>
-
-# Problem Set 2 C++ Rubric
-
-This Problem Set will be graded out of 10 points and is worth 4% of your total grade.
-
-<table width="100%">
-    <tr>
-        <th>
-            Task
-        </th>
-        <th>
-            Points
-        </th>
-    </tr>
-    <tr>
-        <td>
-            Class methods
-                <ul>
-                    <li> Default constructor
-                    <li> Constructor that takes `std::vector`
-                    <li> Get atom by index
-                    <li> Add/append at atom
-                    <li> `size()`
-                    <li> Printing function
-                    <li> Destructor
-                </ul>
-        </td>
-        <td>
-            Points
-                <ul>
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                </ul>
-        </td>
-    </tr>
-    <tr>
-    <td>
-        `const` correctness
-    </td>
-    <td>
-        2 points
-    </td>
-    </tr>
-    <tr>
-    <td>
-        Code compiles via Makefile and runs
-    </td>
-    <td>
-        1 point
     </td>
 
 

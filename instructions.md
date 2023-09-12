@@ -180,3 +180,8 @@ Write the answer to these questions in your README for this assignment.
 1. Which integrator did you choose to implement and why?
 2. Imagine that you wanted to add a method to all of the integrators that allowed you to print the system state (current position, velocity, kinetic energy, potential energy). How would you do that? Where would you add your method, and what would you call the method?
 3. Do you see the advantage of using inheritance and object oriented programming for this task? If so, what do you perceive the advantage to be? If not, how do you think the structure of the code could be improved?
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+    </script>

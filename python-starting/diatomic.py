@@ -36,8 +36,9 @@ class Diatomic:
         self.omega = math.sqrt(self.force_constant / self.reduced_mass)
         self.amplitude = math.sqrt(2 * self.total_energy / self.force_constant)
 
-        self.phi = math.acos(self.separation / self.amplitude)
-
+        # use atan2 to calculate phi
+        self.phi = math.atan2(-initial_velocity, self.omega * initial_separation)
+        
     def potential_energy(self):
         # Provided - Problem Set 1
         return 0.5 * self.force_constant * self.separation**2
@@ -53,3 +54,4 @@ class Diatomic:
     def analytical_velocity(self, t: Union[ float, np.ndarray ] ):
         # Provided - Problem Set 1
         return -self.amplitude * self.omega * np.sin(self.omega * t + self.phi)
+
