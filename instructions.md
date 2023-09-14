@@ -1,6 +1,9 @@
 <!-- omit in toc -->
 # Problem Set 2 
 
+**Note** Your commit history on this assignment must show *incremental development* across at least two days.
+One single commit with all of your code is not acceptable.
+
 <!-- omit in toc -->
 ## Contents
   
@@ -37,7 +40,8 @@ The background for this assignment is long, but you should only have to write a 
 
 ### Molecular Dynamics Simulations - Background
 
-In molecular dynamics simulations, the movement of molecules is simulated by calculating the forces on atoms and updating their positions based on those forces. This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different timepoints, and information about the energy of the system at those timepoints. The trajectory can be analyzed to predict molecular properties or behavior, and visualized to show the movement of a system through time. It is important to emphasize that the trajectories generated do not necessarily represent the "true movement" of a molecular system. Molecular dynamics is a statistical prediction method.
+In molecular dynamics simulations, the movement of molecules is simulated by calculating the forces on atoms and updating their positions based on those forces. 
+This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different timepoints, and information about the energy of the system at those timepoints. The trajectory can be analyzed to predict molecular properties or behavior, and visualized to show a model of the movement of a system through time. 
 
 Force is equal to the negative gradient of potential energy. MD simulations use a potential energy function and Newton's second law (the force on an object is equal to the object's mass times its acceleration) to calculate positions of atoms. 
 
@@ -52,10 +56,9 @@ $$
 
 By setting these two equations equal to one another, we can obtain an expression for the acceleration, which will allow us to calculate updated positions based on initial coordinates and velocities.
 
-$$ 
-\vec{a}_{i}(t_{0}) = \frac{1}{m}\vec{F}_{i}(t_{0}) = -\frac{1}{m}_{i}(\nabla U)_{i} 
 $$
-
+\vec{a_{i}} (t_{0}) = \frac{1}{m}\vec{F_{i}}(t_{0}) = -\frac{1}{m_{i}}(\nabla U)_{i}  
+$$
 
 Given initial conditions (positions and velocities), we can calculate positions ($\vec{x}$) based on previous positions and acceleration and an amount of time ($\Delta t$). 
 
@@ -92,11 +95,11 @@ Use this section as a reference as you are completing the tasks in the `Specific
 Perhaps the most commonly used algorithm is the **Velocity Verlet** (pronounced ver-lay) algorithm. Everyone will implement a Velocity Verlet algorithm.
 
 $$
-\vec{x}_i (t_{0} + \Delta t) = \vec{x}_i (t_{0}) + \vec{v}_{i} (t_{0}) \Delta t + \frac{1}{2} \vec{a}_{i}(t_{0}) \Delta t^{2} 
+\vec{x_i} (t_{0} + \Delta t) = \vec{x_i} (t_{0}) + \vec{v_i} (t_{0}) \Delta t + \frac{1}{2} \vec{a_i}(t_{0}) \Delta t^{2} 
 $$ 
 
 $$
-\vec{v}_i (t_{0} + \Delta t) = \vec{v}_i (t_{0}) + \frac{\vec{a}_{i}(t_{0}) - \vec{a}_{i}(t_{0}+\Delta t)}{2} \Delta t 
+\vec{v_i} (t_{0} + \Delta t) = \vec{v_i} (t_{0}) + \frac{\vec{a_i}(t_{0}) - \vec{a_i}(t_{0}+\Delta t)}{2} \Delta t 
 $$
 
 
@@ -175,13 +178,16 @@ $$
 
 Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has three required targets: `lint` (runs black and flake8), `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice.
 
+Like always, you should include a `README.md` that includes information about the homework and how to use your makefile.
+
 Write the answer to these questions in your README for this assignment.
 
 1. Which integrator did you choose to implement and why?
 2. Imagine that you wanted to add a method to all of the integrators that allowed you to print the system state (current position, velocity, kinetic energy, potential energy). How would you do that? Where would you add your method, and what would you call the method?
 3. Do you see the advantage of using inheritance and object oriented programming for this task? If so, what do you perceive the advantage to be? If not, how do you think the structure of the code could be improved?
+4. Conceptually, what is the difference between the analytical prediction of the movement of our harmonic oscillator and the one predicted using the molecular dynamics simulation?
 
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
-    </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
