@@ -113,8 +113,9 @@ $$
 
 2. Calculate the updated position:
 $$
-\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t + \frac{1}{2} \Delta t)
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t + \frac{1}{2} \Delta t) \Delta t
 $$
+
 
 3. Calculate the updated velocity using half step velocity from (1) and updated acceleration based on position in step 2.
 $$
@@ -147,7 +148,7 @@ $$
 **All other steps**
 
 $$
-\vec{x}(t + \Delta t) = 2 \vec{x}(t) - \vec{x}(t - \Delta t) + \vec{a}(t) \Delta t ^ {2} - \frac{1}{6} \vec{a}(t - \Delta t)
+\vec{x}(t + \Delta t) = 2 \vec{x}(t) - \vec{x}(t - \Delta t) + \vec{a}(t) \Delta t ^ {2} 
 $$
 
 In the Verlet method, the velocity is not actually used to calculate the position. However, it would be necessary to calculate observables like the kinetic energy. It is approximated at a particular time using the previous position and the next position.
