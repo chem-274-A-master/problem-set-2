@@ -40,6 +40,12 @@ The background for this assignment is long, but you should only have to write a 
 
 ### Molecular Dynamics Simulations - Background
 
+In our last homework, we wrote a class to describe the movement of a harmonic oscillator through time.
+The equations for position and velocity were obtained by solving the differential equation for the harmonic oscillator constructed using Newton's second law (F=ma) and the force on the harmonic oscillator (F=kx).
+
+The harmonic oscillator is a rare example of a system where such an exact solution exists. 
+However, in molecular dynamics simulations, we are often interested in more complicated systesm for which there is not an analytical solution to describe the movement.
+
 In molecular dynamics simulations, the movement of molecules is simulated by calculating the forces on atoms and updating their positions based on those forces. 
 This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different timepoints, and information about the energy of the system at those timepoints. The trajectory can be analyzed to predict molecular properties or behavior, and visualized to show a model of the movement of a system through time. 
 
@@ -62,7 +68,7 @@ $$
 
 Given initial conditions (positions and velocities), we can calculate positions ($\vec{x}$) based on previous positions and acceleration and an amount of time ($\Delta t$). 
 
-There are many algorithms for computing trajectories from a potential energy and molecular system. In this homework, you will implement at least two molecular dynamics integration algorithms (the algorithms which are used to propogate the movement of system in time foward.)
+There are many algorithms for computing trajectories from a potential energy and molecular system. In this homework, you will implement at least two molecular dynamics integration algorithms (the algorithms which are used to propagate the movement of system in time forward.)
 
 You will use the diatomic object written in your last homework assignment to test your integrators. Usually in a molecular system, there will be many more atoms and the potential energy function will be more complicated and writing an analytical equation for the positions of the atoms is not possible. The diatomic class is described by a potential energy equation which is commonly used in molecular dynamics simulations to describe bonds (the harmonic oscillator) and has the benefit of having an analytical solution, so you can directly compare the behavior predicted by the analytical solution and the molecular dynamics integrator. 
 
