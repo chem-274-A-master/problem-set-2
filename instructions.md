@@ -108,7 +108,7 @@ You can either use the formulas above, or in half steps (as described below). A 
 
 1. Calculate the velocity at a half step:
 $$
- \vec{v}(t + \frac{1}{2} \Delta t) = \vec{v}(t) + \frac{1}{2} \vec{a} \Delta t
+ \vec{v}(t + \frac{1}{2} \Delta t) = \vec{v}(t) + \frac{1}{2} \vec{a}(t) \Delta t
  $$
 
 2. Calculate the updated position:
@@ -132,17 +132,22 @@ $$
 $$
 
 $$
-\vec{v}( t + \Delta t ) = \vec{v}(t) + \vec{a} \Delta t
+\vec{v}( t + \Delta t ) = \vec{v}(t) + \vec{a}(t + \Delta t)  \Delta t
 $$
 
 #### **Verlet Integrator**
 The Velocity Verlet algorithm discussed previously is an improvement on the Verlet algorithm. 
-The Verlet algorithm is one of the earliest molecular dynamics integrators used. It is more difficulat to implement than the Euler or Verlet integrator because it is not "self-starting". 
+The Verlet algorithm is one of the earliest molecular dynamics integrators used. 
+It is more difficult to implement than the Euler or Velocity Verlet integrator because it is not "self-starting". 
 Calculation of the first step is different than every other step and the next position relies on the past state of the simulation.
 
 **First Step**  
 $$
-\vec{x}(t + \Delta t) = \vec{x} + \vec{v}(t) \Delta t + \frac{1}{2} \vec{a} \Delta t ^{2} 
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t) \Delta t + \frac{1}{2} \vec{a}(t) \Delta t ^{2} 
+$$
+
+$$
+\vec{v}(t + \Delta t) = \frac {\vec{x}(t + \Delta t) - \vec{x}(t)} { \Delta t}
 $$
 
 **All other steps**
@@ -151,24 +156,33 @@ $$
 \vec{x}(t + \Delta t) = 2 \vec{x}(t) - \vec{x}(t - \Delta t) + \vec{a}(t) \Delta t ^ {2} 
 $$
 
-In the Verlet method, the velocity is not actually used to calculate the position. However, it would be necessary to calculate observables like the kinetic energy. It is approximated at a particular time using the previous position and the next position.
+In the Verlet method, the velocity is not actually used to calculate the position. 
+However, it would be necessary to calculate observables like the kinetic energy. 
+It is approximated at a particular time using the previous position and the next position.
 
 $$
-\vec{v}(t) = \frac {\vec{x}(t + \Delta t) - \vec{x}(t - \Delta t)} {2 \Delta t}
+\vec{v}(t + \Delta t) = \frac {\vec{x}(t + \Delta t) - \vec{x}(t - \Delta t)} {2 \Delta t}
 $$
+
+**A question to ponder** - Why does the velocity calculation for all steps besides step 1 have a 2 in the denominator?
 
 #### **Beeman Integrator**
-The Beeman algorithm is very similar to the Verlet algorithm, but has better energy conservation. Like the Verlet algorithm, the Beeman algorithm is not self-starting. It is also to harder to implement than either the Velocity Verlet or Euler methods.
+The Beeman algorithm is very similar to the Verlet algorithm. 
+Like the Verlet algorithm, the Beeman algorithm is not self-starting. It is also harder to implement than either the Velocity Verlet or Euler methods.
 
 **First Step**  
 $$
-\vec{x}(t + \Delta t) = \vec{x} + \vec{v}(t) \Delta t + \frac{1}{2} \vec{a} \Delta t ^{2} 
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t) \Delta t + \frac{1}{2} \vec{a}(t) \Delta t ^{2} 
+$$
+
+$$
+\vec{v}(t + \Delta t) = \frac {\vec{x}(t + \Delta t) - \vec{x}(t)} { \Delta t}
 $$
 
 **All other steps**
 
 $$
-\vec{x}(t + \Delta t) = \vec{x} (t) + \vec{v}(t) \Delta t + \frac{1}{6} \left( 4 \vec{a}(t) - \vec{a}(t - \Delta t) \right) \Delta t ^ {2}
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t) \Delta t + \frac{1}{6} \left( 4 \vec{a}(t) - \vec{a}(t - \Delta t) \right) \Delta t ^ {2}
 $$
 
 $$
