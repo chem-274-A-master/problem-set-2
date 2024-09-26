@@ -13,23 +13,10 @@ struct Atom
 class Molecule
 {
     private:
-        std::vector<Atom> atoms_;
+        /* code here */
 
     public:
-        /* Write the default (zero argument) constructor */
-
-        /* Write constructor that takes in a const std::vector<Atom> */
-
-        /* Write a function to get an atom by index (get_atom) */
-
-        /* Write function to add/append an atom (add_atom) */
-
-        /* Write a function that returns the size (number of atoms) */
-
-        /* Write a function to print all the info for all the atoms (print) */
-
-        /* A destructor that prints to std::cout that is is destructing, and 
-           how many atoms are being destructed */
+        /* code here */
 };
 
 

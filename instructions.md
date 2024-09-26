@@ -21,18 +21,72 @@ One single commit with all of your code is not acceptable.
 
 ## Section 1 - C++ Classes
 
-The file `molecule.cpp` contains the beginning of a molecule class. Add the following
-member functions to the class.
+We've seen some beginnings of a class representing a Molecule before. Now it is time to make that idea more complete, and add some
+useful features.
 
-Remember const correctness! Some functions should be const.
+The file `molecule.cpp` contains the beginning of a molecule class. Your job is to add the following functionality:
 
-* Default constructor (takes no arguments)
-* Constructor that takes in an existing std::vector of atoms
-* A function to get an `Atom` from the class by index
-* A function to add/append an `Atom` instance.
-* A function that prints out the size (number of atoms) of the molecule (called `size()`, returning a `size_t`)
+**Remember const correctness!**
+
+* Default constructor (takes no arguments) and a constructor that that takes in an existing std::vector of atoms
+* Copy constructor
+* A function to get an `Atom` from the class by index (and allows modification of the returned atom)
+* A function to add/append an atom
+* A function to remove an atom by index
+* A function that returns the number of atoms of the molecule (by convention called `size()`, returning a `size_t`)
+* A function that removes all atoms (by convention called `clear()`)
 * A function that prints out the contents of the molecule (each atom being on its own line)
-* A destructor that simply prints that it is destructing and how many atoms it is destructing.
+* A function that computes & returns the moment of inertia tensor (see below)
+
+You are also required to write some tests demonstrating your code in the `main` function of that file. Some examples are shown there,
+but **you must add more** for the functions you have written.
+
+
+### Moment of inertia tensor
+
+The moment of inertia tensor $I$ is a common thing to compute for molecules. All you need is the coordinates
+and the atomic mass of each atom.
+
+There is lots of info online about these tensors - see [here](https://chem.libretexts.org/Courses/Pacific_Union_College/Quantum_Chemistry/13%3A_Molecular_Spectroscopy/13.08%3A_Rotational_Spectra_of_Polyatomic_Molecules)
+for an example.
+
+The moment of inertia tensor is represented as a $3 \times 3$ symmetric matrix
+
+$$
+\mathbf{I} = \begin{pmatrix}
+I_{xx} & I_{xy} & I_{xz} \\
+I_{yx} & I_{yy} & I_{yz} \\
+I_{zx} & I_{zy} & I_{zz}
+\end{pmatrix}
+$$
+
+where the diagonal elements are given by
+$$
+\begin{aligned}
+I_{xx} &= \sum_i m_i \(y_i^2 + z_i^2\) \\
+I_{yy} &= \sum_i m_i \(x_i^2 + z_i^2\) \\
+I_{zz} &= \sum_i m_i \(x_i^2 + y_i^2\)
+\end{aligned}
+$$
+
+and off diagonal elements
+
+$$
+\begin{aligned}
+I_{xy} &= -\sum_i m_i x_i y_i \\
+I_{xz} &= -\sum_i m_i x_i z_i \\
+I_{yz} &= -\sum_i m_i y_i z_i
+\end{aligned}
+$$
+
+Since this is a symmetric matrix, $I_{xy} = I{yx}$, etc.
+
+Write a function (part of the Molecule class) that computes and returns the moment of inertia tensor. Since we know the size of this matrix
+and it is always $3 \times 3$, you can return a nested `std::array` object.
+
+Consider whether you should store this in your class or always compute this on the fly. Think about the other functions you wrote, and what
+happens to a stored tensor if atoms are added/removed.
+
 
 ## Section 2 - Python Inheritance
 
