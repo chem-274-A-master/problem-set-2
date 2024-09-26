@@ -44,7 +44,7 @@ In our last homework, we wrote a class to describe the movement of a harmonic os
 The equations for position and velocity were obtained by solving the differential equation for the harmonic oscillator constructed using Newton's second law (F=ma) and the force on the harmonic oscillator (F=kx).
 
 The harmonic oscillator is a rare example of a system where such an exact solution exists. 
-However, in molecular dynamics simulations, we are often interested in more complicated systesm for which there is not an analytical solution to describe the movement.
+However, in molecular dynamics simulations, we are often interested in more complicated systems for which there is not an analytical solution to describe the movement.
 
 In molecular dynamics simulations, the movement of molecules is simulated by calculating the forces on atoms and updating their positions based on those forces. 
 This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different timepoints, and information about the energy of the system at those timepoints. The trajectory can be analyzed to predict molecular properties or behavior, and visualized to show a model of the movement of a system through time. 
