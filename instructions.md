@@ -61,6 +61,7 @@ I_{zx} & I_{zy} & I_{zz}
 $$
 
 where the diagonal elements are given by
+
 $$
 \begin{aligned}
 I_{xx} &= \sum_i m_i \(y_i^2 + z_i^2\) \\
@@ -79,7 +80,7 @@ I_{yz} &= -\sum_i m_i y_i z_i
 \end{aligned}
 $$
 
-Since this is a symmetric matrix, $I_{xy} = I{yx}$, etc.
+Since this is a symmetric matrix, $I_{xy} = I_{yx}$ and so on.
 
 Write a function (part of the Molecule class) that computes and returns the moment of inertia tensor. Since we know the size of this matrix
 and it is always $3 \times 3$, you can return a nested `std::array` object.
