@@ -87,7 +87,7 @@ This Problem Set will be graded out of 15 points and is worth 4% of your total g
                     <li> 1 point
                     <li> 1 point
                     <li> 1 point
-                    <li> 3 point
+                    <li> 3 points
                 </ul>
         </td>
     </tr>
