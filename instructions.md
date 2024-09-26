@@ -84,6 +84,9 @@ $$
 
 Since this is a symmetric matrix, $I_{xy} = I_{yx}$ and so on.
 
+Since we are using C++, which has 0-based indexing, then `x=0`, `y=1`, and `z=2`. Therefore, $I_{xx}$ would be stored in a variable
+such as `I[0][0]`, and $I_{yz}$ would be stored in `I[1][2]`.
+
 Write a function (part of the Molecule class) that computes and returns the moment of inertia tensor. Since we know the size of this matrix
 and it is always $3 \times 3$, you can return a nested `std::array` object.
 
