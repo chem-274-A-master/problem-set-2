@@ -31,15 +31,17 @@ The file `molecule.cpp` contains the beginning of a molecule class. Your job is 
 * Default constructor (takes no arguments) and a constructor that that takes in an existing std::vector of atoms
 * Copy constructor
 * A function to get an `Atom` from the class by index (and allows modification of the returned atom)
-* A function to add/append an atom
-* A function to remove an atom by index
+* A function to add an atom (appending to the end)
 * A function that returns the number of atoms of the molecule (by convention called `size()`, returning a `size_t`)
 * A function that removes all atoms (by convention called `clear()`)
 * A function that prints out the contents of the molecule (each atom being on its own line)
+* A function that computes & returns the molecular weight
 * A function that computes & returns the moment of inertia tensor (see below)
 
 You are also required to write some tests demonstrating your code in the `main` function of that file. Some examples are shown there,
 but **you must add more** for the functions you have written.
+
+**Hint** - storing the atoms internally using a `std::vector` will make this much easier
 
 
 ### Moment of inertia tensor

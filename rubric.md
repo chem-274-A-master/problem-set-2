@@ -48,7 +48,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
 
 # Problem Set 2 C++ Rubric
 
-This Problem Set will be graded out of 10 points and is worth 4% of your total grade.
+This Problem Set will be graded out of 15 points and is worth 4% of your total grade.
 
 <table width="100%">
     <tr>
@@ -65,11 +65,14 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
                 <ul>
                     <li> Default constructor
                     <li> Constructor that takes `std::vector`
+                    <li> Copy constructor
                     <li> Get atom by index
-                    <li> Add/append at atom
+                    <li> Adding an atom
                     <li> `size()`
+                    <li> `clear()`
                     <li> Printing function
-                    <li> Destructor
+                    <li> Molecular weight function
+                    <li> Moment of intertia function
                 </ul>
         </td>
         <td>
@@ -82,6 +85,9 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
                     <li> 1 point
                     <li> 1 point
                     <li> 1 point
+                    <li> 1 point
+                    <li> 1 point
+                    <li> 3 point
                 </ul>
         </td>
     </tr>
