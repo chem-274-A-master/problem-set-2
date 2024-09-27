@@ -36,12 +36,28 @@ The file `molecule.cpp` contains the beginning of a molecule class. Your job is 
 * A function that removes all atoms (by convention called `clear()`)
 * A function that prints out the contents of the molecule (each atom being on its own line)
 * A function that computes & returns the molecular weight
+* A function that computes & returns the center of mass (see below)
 * A function that computes & returns the moment of inertia tensor (see below)
 
 You are also required to write some tests demonstrating your code in the `main` function of that file. Some examples are shown there,
 but **you must add more** for the functions you have written.
 
 **Hint** - storing the atoms internally using a `std::vector` will make this much easier
+
+### Center of mass
+
+The center of mass is a 3d point the represents the mass-weighted center of the molecule.
+
+$$
+\begin{align}
+C_x &= \frac{\sum_i m_i x_i}{M} \\
+C_y &= \frac{\sum_i m_i y_i}{M} \\
+C_z &= \frac{\sum_i m_i z_i}{M}
+\end{align}
+$$
+
+where $i$ represents the index of an atom in our molecule, and $M$ is the total mass of the molecule.
+The function should return an `std::array` of three doubles.
 
 
 ### Moment of inertia tensor
@@ -82,7 +98,7 @@ I_{yz} &= -\sum_i m_i y_i z_i
 \end{aligned}
 $$
 
-Since this is a symmetric matrix, $I_{xy} = I_{yx}$ and so on.
+where $i$ represents the index of an atom in our molecule. Since this is a symmetric matrix, $I_{xy} = I_{yx}$ and so on.
 
 Since we are using C++, which has 0-based indexing, then `x=0`, `y=1`, and `z=2`. Therefore, $I_{xx}$ would be stored in a variable
 such as `I[0][0]`, and $I_{yz}$ would be stored in `I[1][2]`.
