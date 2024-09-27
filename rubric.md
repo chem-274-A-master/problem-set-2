@@ -48,7 +48,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
 
 # Problem Set 2 C++ Rubric
 
-This Problem Set will be graded out of 15 points and is worth 4% of your total grade.
+This Problem Set will be graded out of 30 points and is worth 4% of your total grade.
 
 <table width="100%">
     <tr>
@@ -72,6 +72,7 @@ This Problem Set will be graded out of 15 points and is worth 4% of your total g
                     <li> `clear()`
                     <li> Printing function
                     <li> Molecular weight function
+                    <li> Center of mass function
                     <li> Moment of intertia function
                 </ul>
         </td>
@@ -80,14 +81,15 @@ This Problem Set will be graded out of 15 points and is worth 4% of your total g
                 <ul>
                     <li> 1 point
                     <li> 1 point
+                    <li> 2 point
+                    <li> 2 point
+                    <li> 2 point
                     <li> 1 point
                     <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 1 point
-                    <li> 3 points
+                    <li> 2 point
+                    <li> 2 point
+                    <li> 4 point
+                    <li> 6 points
                 </ul>
         </td>
     </tr>
@@ -96,7 +98,7 @@ This Problem Set will be graded out of 15 points and is worth 4% of your total g
         `const` correctness
     </td>
     <td>
-        2 points
+        4 points
     </td>
     </tr>
     <tr>
@@ -104,7 +106,7 @@ This Problem Set will be graded out of 15 points and is worth 4% of your total g
         Code compiles and runs
     </td>
     <td>
-        1 point
+        2 point
     </td>
 
 
