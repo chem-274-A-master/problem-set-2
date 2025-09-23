@@ -37,15 +37,15 @@ useful features.
 
 The file `molecule.cpp` contains the beginning of a molecule class. Your job is to add the following functionality:
 
-**Remember const correctness!**
+**Remember `const` correctness!** Points will be deducted for functions that are not `const` correct, or if the code fails to compile.
 
-* Default constructor (takes no arguments) and a constructor that that takes in an existing std::vector of atoms
+* Default constructor (takes no arguments)
+* A constructor that that takes in an existing `std::vector` of atoms
 * Copy constructor
 * A function to get an `Atom` from the class by index (and allows modification of the returned atom)
 * A function to add an atom (appending to the end)
 * A function that returns the number of atoms of the molecule (by convention called `size()`, returning a `size_t`)
 * A function that removes all atoms (by convention called `clear()`)
-* A function that prints out the contents of the molecule (each atom being on its own line)
 * A function that computes & returns the molecular weight
 * A function that computes & returns the center of mass (see below)
 * A function that computes & returns the moment of inertia tensor (see below)
