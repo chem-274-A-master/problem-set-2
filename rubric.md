@@ -22,14 +22,14 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
         <td>
             Points
                 <ul>
-                    <li> 2 points
-                    <li> 2 points
+                    <li> 1.5 points
+                    <li> 1.5 points
                 </ul>
         </td>
     </tr>
     <tr>
     <td>
-        Makefile
+        Makefile/Plotting
     </td>
     <td>
         2 points
@@ -40,7 +40,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
         Documentation and Reflection
     </td>
     <td>
-        4 points
+        5 points
     </td>
 
 

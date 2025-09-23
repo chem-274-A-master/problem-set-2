@@ -1,8 +1,19 @@
 <!-- omit in toc -->
 # Problem Set 2 
 
-**Note** Your commit history on this assignment must show *incremental development* across at least two days.
-One single commit with all of your code is not acceptable.
+<div style="background-color: #fff3cd; color: #856404; padding: 15px; margin-bottom: 25px; border: 1px solid #ffeeba; border-radius: 4px;">
+  
+  <strong>Showing your work</strong> 
+  <p>
+    Your homework assignments should show incremental development with at least two different commits over two different days of work. Assignments that do not show incremental development will incur a 5% penalty.
+  </p>
+
+  <strong>Reminder: No AI Tools</strong>
+  <p>
+According to MSSE Department policy, use of AI tools is not permitted in Chem 274A. Do not use generative AI tools (e.g., ChatGPT, Claude, GitHub Copilot, or similar) for any part of this assignment, including planning, coding, or writing.
+  </p>
+</div>
+
 
 <!-- omit in toc -->
 ## Contents
@@ -110,7 +121,7 @@ Consider whether you should store this in your class or always compute this on t
 happens to a stored tensor if atoms are added/removed.
 
 
-## Section 2 - Python Inheritance
+## Section 2 - Python Inheritance and Composition.
 
 The background for this assignment is long, but you should only have to write a few lines of code to complete these tasks (probably less than 20).
 
@@ -160,7 +171,7 @@ For this homework, you implement the Velocity Verlet algorithm and at least one 
 
 2. Add another method to your `Diatomic` class called `acceleration`. This method should calculate the acceleration based on the force (using your `force` method from the first step). This should use the equation `F=ma` (ie, $a = \frac{F}{m}$). This method should also **return** the calculated acceleration. **This acceleration will be used in many of the integration algorithms.**
 
-3. Now you have all the pieces for your integrators. For each integration method (you should do Velocity Verlet and one other method of your choice), write a class which inherits from `IntegratorBaseClass`. Write the `step` method. After writing the `step` method for the Velocity Verlet integration method, you should be able to run `run.py` and obtain graphs comparing the integration method and the analytical solution. **You do not need to change any code in IntegratorBaseClass or run.py to implement your integration methods, and your VelocityVerlet method should only need a `step` method.** 
+3. Now you have all the pieces for your integrators. For each integration method (you should do Velocity Verlet and one other method of your choice), write a class which inherits from `IntegratorBaseClass`. Write the `step` method. After writing the `step` method for the Velocity Verlet integration method, you should be able to run `run.py` and obtain graphs comparing the integration method and the analytical solution. **You do not need to change any code in IntegratorBaseClass or run.py to implement your integration methods, and your VelocityVerlet method should only need a `step` method.**
 
     Notice that the `IntegratorBaseClass` takes an instance of the diatomic class in the constructor. This is an example of an object oriented programming concept called *composition*. The integrator has another object (the diatomic) as a component. The `run` methods in your integrator classes should update the state (position and velocity) of the diatomic for each time step (ie, `self.diatomic.position = SOMETHING`)
    
@@ -273,16 +284,18 @@ $$
 
 ### Reflection and Documentation
 
-Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has three required targets: `lint` (runs black and flake8), `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice.
+Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has three required targets: `lint` (runs black and flake8), `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice. Make the name of this target `Integrator2`.
 
-Like always, you should include a `README.md` that includes information about the homework and how to use your makefile.
+Like always, you should include a `README.md` that includes information about the homework and how to use your mMkefile.
 
 Write the answer to these questions in your README for this assignment.
 
-1. Which integrator did you choose to implement and why?
-2. Imagine that you wanted to add a method to all of the integrators that allowed you to print the system state (current position, velocity, kinetic energy, potential energy). How would you do that? Where would you add your method, and what would you call the method?
-3. Do you see the advantage of using inheritance and object oriented programming for this task? If so, what do you perceive the advantage to be? If not, how do you think the structure of the code could be improved?
-4. Conceptually, what is the difference between the analytical prediction of the movement of our harmonic oscillator and the one predicted using the molecular dynamics simulation?
+1. This homework uses both **inheritance** and **composition**. Where are each used and how? Why?
+2. Discuss the advantages and disadvantages of using inheritance for this task. Then, do the same for composition. How do these two concepts complement each other in this problem?
+3. Suppose you wanted to add a method to all integrators that prints the system state (current position, velocity, kinetic energy, potential energy).
+Where would you put this method, and what object-oriented programming concept would you be using to make it available to every integrator?
+4. Now suppose you wanted to simulate a molecular system other than a diatomic (for example, a triatomic or more general molecule). Which OOP concept makes this extension straightforward, and why?
+5.  Conceptually, what is the difference between the analytical prediction of the movement of our harmonic oscillator and the one predicted using the molecular dynamics simulation? **Hint** - The answer is *not* that an MD simulation is "more realistic". Both are applications of the harmonic oscillator model.
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
