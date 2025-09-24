@@ -1,6 +1,6 @@
 # Problem Set 2 Python Rubric
 
-This Problem Set will be graded out of 10 points and is worth 4% of your total grade.
+The Python portion of this Problem Set will be graded out of 10 points and is worth 4% of your total grade.
 
 <table width="100%">
     <tr>
@@ -48,7 +48,7 @@ This Problem Set will be graded out of 10 points and is worth 4% of your total g
 
 # Problem Set 2 C++ Rubric
 
-This Problem Set will be graded out of 10 points and is worth 4% of your total grade.
+This C++ portion of this Problem Set will be graded out of 10 points and is worth 4% of your total grade.
 
 <table width="100%">
     <tr>

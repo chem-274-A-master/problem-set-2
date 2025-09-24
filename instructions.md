@@ -284,11 +284,29 @@ $$
 
 ### Reflection and Documentation
 
-Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has three required targets: `lint` (runs black and flake8), `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice. Make the name of this target `Integrator2`.
+Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has two required targets: `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice. Make the name of this target `Integrator2`.
 
 Like always, you should include a `README.md` that includes information about the homework and how to use your mMkefile.
 
 Write the answer to these questions in your README for this assignment.
+
+<div style="background-color: #e7f3fe; color: #0c5460; padding: 15px; margin-bottom: 25px; border: 1px solid #b8daff; border-radius: 4px;">
+
+  <strong>Answering Reflection Questions</strong>
+  <p>
+    Your written answers should be <em>complete explanations</em>, not short phrases. A complete answer:
+  </p>
+  <ul>
+    <li>References the code or class design from the assignment (e.g., mention specific classes, methods, or objects).</li>
+    <li>Explains the reasoning, not just the fact (say <em>why</em> inheritance or composition is used, not only that it is).</li>
+    <li>Uses correct terminology from object-oriented programming.</li>
+    <li>Is written in full sentences and paragraphs.</li>
+  </ul>
+  <p>
+    <strong>Grading:</strong> Full credit requires answers that connect to code and explain <em>why</em>. Answers that only identify a concept without explanation will receive partial credit.
+  </p>
+</div>
+
 
 1. This homework uses both **inheritance** and **composition**. Where are each used and how? Why?
 2. Discuss the advantages and disadvantages of using inheritance for this task. Then, do the same for composition. How do these two concepts complement each other in this problem?
