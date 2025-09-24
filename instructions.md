@@ -26,6 +26,7 @@ According to MSSE Department policy, use of AI tools is not permitted in Chem 27
   - [Molecular Dynamics Integrators](#molecular-dynamics-integrators)
     - [**Velocity Verlet Integrator**](#velocity-verlet-integrator)
     - [**Euler Integrator**](#euler-integrator)
+    - [**Semi-Implicit Euler Integrator**](#semi-implicit-euler-integrator)
     - [**Verlet Integrator**](#verlet-integrator)
     - [**Beeman Integrator**](#beeman-integrator)
   - [Reflection and Documentation](#reflection-and-documentation)
@@ -225,8 +226,25 @@ $$
 $$
 
 $$
-\vec{v}( t + \Delta t ) = \vec{v}(t) + \vec{a}(t + \Delta t)  \Delta t
+\vec{v}( t + \Delta t ) = \vec{v}(t) + \vec{a}(t )  \Delta t
 $$
+
+#### **Semi-Implicit Euler Integrator**
+The **semi-implicit Euler** (also called *symplectic Euler*) method is a small change to the standard Euler algorithm that gives significantly better long-term stability.
+Instead of updating position and velocity using only the old state, it updates the velocity first and then uses that new velocity to update the position.
+
+1. Update velocity using the acceleration at the old position:
+
+$$
+\vec{v}(t + \Delta t) = \vec{v}(t) + \vec{a}(t) \Delta t
+$$
+
+2. Update position using the new velocity:
+
+$$
+\vec{x}(t + \Delta t) = \vec{x}(t) + \vec{v}(t + \Delta t) \Delta t
+$$
+
 
 #### **Verlet Integrator**
 The Velocity Verlet algorithm discussed previously is an improvement on the Verlet algorithm. 
@@ -246,7 +264,7 @@ $$
 **All other steps**
 
 $$
-\vec{x}(t + \Delta t) = 2 \vec{x}(t) - \vec{x}(t - \Delta t) + \vec{a}(t) \Delta t ^ {2} 
+\vec{x}(t + \Delta t) = 2 \vec{x}(t) + \vec{x}(t - \Delta t) + \vec{a}(t) \Delta t ^ {2} 
 $$
 
 In the Verlet method, the velocity is not actually used to calculate the position. 
