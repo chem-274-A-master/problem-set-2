@@ -1,0 +1,15 @@
+{
+  "name": "chem274a-assignment-pdf-build",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible Markdown-to-PDF build for the assignment instructions",
+  "scripts": {
+    "build": "node build-pdf.js",
+    "check": "node build-pdf.js --check"
+  },
+  "dependencies": {
+    "katex": "0.16.47",
+    "marked": "4.3.0",
+    "puppeteer": "24.31.0"
+  }
+}

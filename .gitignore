@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Local PDF build dependencies and temporary render output
+.pdf-build/node_modules/
+.pdf-build/.cache/
+.pdf-build/.rendered.html
+
 # Distribution / packaging
 .Python
 build/

@@ -19,7 +19,7 @@ According to MSSE Department policy, use of AI tools is not permitted in Chem 27
 ## Contents
   
 - [Section 1 - C++ Classes](#section-1---c-classes)
-- [Section 2 - Python Inheritance](#section-2---python-inheritance)
+- [Section 2 - Python Inheritance](#section-2---python-inheritance-and-composition)
   - [Molecular Dynamics Simulations - Background](#molecular-dynamics-simulations---background)
   - [Starting Code](#starting-code)
   - [Specifications](#specifications)
@@ -94,9 +94,9 @@ where the diagonal elements are given by
 
 $$
 \begin{aligned}
-I_{xx} &= \sum_i m_i \(y_i^2 + z_i^2\) \\
-I_{yy} &= \sum_i m_i \(x_i^2 + z_i^2\) \\
-I_{zz} &= \sum_i m_i \(x_i^2 + y_i^2\)
+I_{xx} &= \sum_i m_i (y_i^2 + z_i^2) \\
+I_{yy} &= \sum_i m_i (x_i^2 + z_i^2) \\
+I_{zz} &= \sum_i m_i (x_i^2 + y_i^2)
 \end{aligned}
 $$
 
