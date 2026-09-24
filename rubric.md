@@ -72,7 +72,7 @@ This C++ portion of this Problem Set will be graded out of 10 points and is wort
                     <li> `clear()`
                     <li> Molecular weight function
                     <li> Center of mass function
-                    <li> Moment of intertia function
+                    <li> Moment of inertia function
                 </ul>
         </td>
         <td>

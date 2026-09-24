@@ -1,17 +1,16 @@
 <!-- omit in toc -->
 # Problem Set 2 
 
-<div style="background-color: #fff3cd; color: #856404; padding: 15px; margin-bottom: 25px; border: 1px solid #ffeeba; border-radius: 4px;">
-  
-  <strong>Showing your work</strong> 
-  <p>
-    Your homework assignments should show incremental development with at least two different commits over two different days of work. Assignments that do not show incremental development will incur a 5% penalty.
-  </p>
+<div class="callout callout-warning">
 
-  <strong>Reminder: No AI Tools</strong>
-  <p>
+<strong>Showing your work</strong>
+
+Your homework assignments should show incremental development with at least two different commits over two different days of work. Assignments that do not show incremental development will incur a 5% penalty.
+
+<strong>Reminder: No AI Tools</strong>
+
 According to MSSE Department policy, use of AI tools is not permitted in Chem 274A. Do not use generative AI tools (e.g., ChatGPT, Claude, GitHub Copilot, or similar) for any part of this assignment, including planning, coding, or writing.
-  </p>
+
 </div>
 
 
@@ -41,7 +40,7 @@ The file `molecule.cpp` contains the beginning of a molecule class. Your job is 
 **Remember `const` correctness!** Points will be deducted for functions that are not `const` correct, or if the code fails to compile.
 
 * Default constructor (takes no arguments)
-* A constructor that that takes in an existing `std::vector` of atoms
+* A constructor that takes an existing `std::vector` of atoms
 * Copy constructor
 * A function to get an `Atom` from the class by index (and allows modification of the returned atom)
 * A function to add an atom (appending to the end)
@@ -58,7 +57,7 @@ but **you must add more** for the functions you have written.
 
 ### Center of mass
 
-The center of mass is a 3d point the represents the mass-weighted center of the molecule.
+The center of mass is a 3D point that represents the mass-weighted center of the molecule.
 
 $$
 \begin{align}
@@ -129,13 +128,13 @@ The background for this assignment is long, but you should only have to write a 
 ### Molecular Dynamics Simulations - Background
 
 In our last homework, we wrote a class to describe the movement of a harmonic oscillator through time.
-The equations for position and velocity were obtained by solving the differential equation for the harmonic oscillator constructed using Newton's second law (F=ma) and the force on the harmonic oscillator (F=kx).
+The equations for position and velocity were obtained by solving the differential equation for the harmonic oscillator constructed using Newton's second law ($F=ma$) and the force on the harmonic oscillator ($F=-kx$).
 
 The harmonic oscillator is a rare example of a system where such an exact solution exists. 
 However, in molecular dynamics simulations, we are often interested in more complicated systems for which there is not an analytical solution to describe the movement.
 
 In molecular dynamics simulations, the movement of molecules is simulated by calculating the forces on atoms and updating their positions based on those forces. 
-This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different timepoints, and information about the energy of the system at those timepoints. The trajectory can be analyzed to predict molecular properties or behavior, and visualized to show a model of the movement of a system through time. 
+This is repeated many times (millions!) to obtain the trajectory through time of a molecular system. The output of a molecular dynamics simulation consists of a record of coordinates (a trajectory) for different time points and information about the energy of the system at those time points. The trajectory can be analyzed to predict molecular properties or behavior and visualized to show a model of the movement of a system through time.
 
 Force is equal to the negative gradient of potential energy. MD simulations use a potential energy function and Newton's second law (the force on an object is equal to the object's mass times its acceleration) to calculate positions of atoms. 
 
@@ -163,25 +162,25 @@ You will use the diatomic object written in your last homework assignment to tes
 ### Starting Code
 For this homework, you implement the Velocity Verlet algorithm and at least one other algorithm of your choice using inheritance. The algorithms you can choose from are at the end of this homework. You have been provided with starter code for this task:
 
-1. `diatomic.py` - Contains diatomic class (`Diatomic`) which has methods implemented in the Specifications of Problem Set 1. You will add two methods to this class (as outlined in Specifications, which will make MD simulation possible)
-2. `integrator.py` - Contains `IntegratorBaseClass` class. This class contains a constructor, run simulation, and update trackers method that will be common to all integrators.
+1. `diatomic.py` - Contains the diatomic class (`Diatomic`), which has methods implemented in the Specifications of Problem Set 1. You will add two methods to this class (as outlined in Specifications), which will make MD simulation possible.
+2. `integrator.py` - Contains the `IntegratorBaseClass` class. This class contains a constructor, a simulation method, and a tracker-update method that will be common to all integrators.
 3. `run.py` - contains a script which will run a Velocity Verlet simulation and create a plot comparing positions predicted by Velocity Verlet to analytical values. 
 
 ### Specifications
 1. Starting with  the provided `Diatomic` class from Problem Set 1, add a method called `force` to compute the force based on position. Remember that for a harmonic oscillator, $F(x) = -kx$. This method should **return** the force.
 
-2. Add another method to your `Diatomic` class called `acceleration`. This method should calculate the acceleration based on the force (using your `force` method from the first step). This should use the equation `F=ma` (ie, $a = \frac{F}{m}$). This method should also **return** the calculated acceleration. **This acceleration will be used in many of the integration algorithms.**
+2. Add another method to your `Diatomic` class called `acceleration`. This method should calculate the acceleration based on the force (using your `force` method from the first step). This should use the equation $F=ma$ (i.e., $a = \frac{F}{m}$). This method should also **return** the calculated acceleration. **This acceleration will be used in many of the integration algorithms.**
 
 3. Now you have all the pieces for your integrators. For each integration method (you should do Velocity Verlet and one other method of your choice), write a class which inherits from `IntegratorBaseClass`. Write the `step` method. After writing the `step` method for the Velocity Verlet integration method, you should be able to run `run.py` and obtain graphs comparing the integration method and the analytical solution. **You do not need to change any code in IntegratorBaseClass or run.py to implement your integration methods, and your VelocityVerlet method should only need a `step` method.**
 
-    Notice that the `IntegratorBaseClass` takes an instance of the diatomic class in the constructor. This is an example of an object oriented programming concept called *composition*. The integrator has another object (the diatomic) as a component. The `run` methods in your integrator classes should update the state (position and velocity) of the diatomic for each time step (ie, `self.diatomic.position = SOMETHING`)
+    Notice that the `IntegratorBaseClass` takes an instance of the diatomic class in the constructor. This is an example of an object-oriented programming concept called *composition*. The integrator has another object (the diatomic) as a component. The `run` methods in your integrator classes should update the state (position and velocity) of the diatomic for each time step (i.e., `self.diatomic.position = SOMETHING`).
    
 4. Compare the trajectory predicted by your integration methods to the analytical position values. **Hint** - If your integration is implemented correctly, you will see *very good* agreement between Velocity Verlet and the analytical solution for the parameters provided in the run script.
 
 ### Molecular Dynamics Integrators
 
 This section shows several molecular dynamics algorithms.
-Each of these algorithms has advantages / disadvantages concerning accuracy and stability which we will not have time to cover. 
+Each of these algorithms has advantages and disadvantages concerning accuracy and stability that we will not have time to cover.
 Use this section as a reference as you are completing the tasks in the `Specifications` section.
 
 #### **Velocity Verlet Integrator**
@@ -197,7 +196,7 @@ $$
 $$
 
 
-You can either use the formulas above, or in half steps (as described below). A nice explanation of the steps to implement the half step algorithm can be found [on Wikipedia](https://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet). It is a bit nicer than using the equations above beause it doesn't rely on the past state of the sytem.
+You can either use the formulas above or use half steps (as described below). A helpful explanation of the steps used to implement the half-step algorithm can be found [on Wikipedia](https://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet). This approach is a bit simpler than using the equations above because it doesn't rely on the past state of the system.
 
 
 1. Calculate the velocity at a half step:
@@ -302,13 +301,13 @@ $$
 
 ### Reflection and Documentation
 
-Create a `Makefile` which runs each integrator and saves a plot of the integrator results with the analytical results. Your make file has two required targets: `VelocityVerlet` (runs Velocity Verlet simulation) and another target for your integrator of choice. Make the name of this target `Integrator2`.
+Create a `Makefile` that runs each integrator and saves a plot of the integrator results with the analytical results. Your Makefile has two required targets: `VelocityVerlet` (runs a Velocity Verlet simulation) and another target for your integrator of choice. Name this target `Integrator2`.
 
-Like always, you should include a `README.md` that includes information about the homework and how to use your mMkefile.
+As always, you should include a `README.md` with information about the homework and how to use your Makefile.
 
 Write the answer to these questions in your README for this assignment.
 
-<div style="background-color: #e7f3fe; color: #0c5460; padding: 15px; margin-bottom: 25px; border: 1px solid #b8daff; border-radius: 4px;">
+<div class="callout callout-note">
 
   <strong>Answering Reflection Questions</strong>
   <p>
